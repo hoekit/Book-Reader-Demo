@@ -19,7 +19,8 @@
 
   <div id="readerBody"></div>
 
-  <footer>
+  <!--
+  <footer class="dn">
     <div class="dib w-20"><a href="./credits.html">Credits</a></div>
     <div class="dib w-75">
         <a id="prevPtr" href="./reader.html?ptr=0.2.3">Prev</a>
@@ -27,9 +28,55 @@
         <a id="nextPtr" href="./reader.html?ptr=0.2.5">Next</a>
     </div>
   </footer>
+  -->
 
 </body>
-  <script>m.mount(document.getElementById('readerBody'), Reader)</script>
+  <script>
+    m.mount(document.getElementById('readerBody'), Reader)
+
+    document.getElementById("Ptr").scrollIntoView();
+
+    function clickPrev() {
+        let elPrev = document.querySelector('#prevPtr')
+        if (elPrev) { elPrev.click() }
+    }
+
+    function clickNext() {
+        let elNext = document.querySelector('#nextPtr')
+        if (elNext) { elNext.click() }
+    }
+
+    document.onkeydown = function (event) {
+      switch (event.keyCode) {
+         case 37:
+            clickPrev();    // console.log("Left key is pressed.");
+            break;
+         case 38:
+            break;          // console.log("Up key is pressed.");
+         case 39:
+            clickNext();    // console.log("Right key is pressed.");
+            break;
+         case 40:
+            break;          // console.log("Down key is pressed.");
+      }
+    };
+
+    // Redirect page to sentence that was clicked
+    let mc = new Hammer(document.querySelector('.main'))
+    mc.on('tap', function(e) {
+
+        // Get pointer value in the data-ptr attribute
+        let ptr = e.target.attributes["data-ptr"]
+
+        // Navigate reader to pointer if defined
+        if (typeof ptr !== "undefined") {
+            let url = e.target.attributes["data-ptr"].value
+            Reader.set_ptr(url)
+            m.redraw()
+        }
+    })
+
+  </script>
 </html>
 
 
