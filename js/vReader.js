@@ -295,7 +295,7 @@ var Reader = {
                 m('div.dib.w-75',[
                     m('a#prevPtr',{href:Reader.prev_ptr,onclick:Reader.prev},'Prev'),
                     //m.trust('<a id="prevPtr" href="./reader.html?ptr=0.2.3">Prev</a>'),
-                    '|',
+                    ' | ',
                     m('a#nextPtr',{href:Reader.next_ptr,onclick:Reader.next},'Next'),
                     //m.trust('<a id="nextPtr" href="./reader.html?ptr=0.2.5">Next</a>'),
                 ]),
