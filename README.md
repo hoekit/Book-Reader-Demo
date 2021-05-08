@@ -1,5 +1,5 @@
 # Book-Reader-Demo
-A simple demo for a Bilingual Book Reader
+A simple [demo](https://hoekit.github.io/Book-Reader-Demo/) for a Bilingual Book Reader
 
 # Features
 - Tap on a sentence to "point" to it
